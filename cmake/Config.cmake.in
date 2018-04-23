@@ -33,7 +33,7 @@ check_required_components("@PROJECT_NAME@")
 # Compute paths
 set(OpenGR_INCLUDE_DIR "@OpenGR_INSTALL_DIR@/include/")
 set(OpenGR_LIB_DIR "@OpenGR_INSTALL_DIR@/lib/")
-set(OpenGR_LIBRARIES super4pcs_accel super4pcs_io super4pcs_algo)
+set(OpenGR_LIBRARIES opengr_accel opengr_io opengr_algo)
 
 if(@OpenGR_USE_CHEALPIX@)
   list(APPEND OpenGR_LIBRARIES chealpix)

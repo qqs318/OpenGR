@@ -152,7 +152,7 @@ endif()
 find_package(Doxygen 1.8.0)
 if(DOXYGEN_FOUND)
 
-    set (OpenGR_PROJECT_NUMBER "V${Super4PCS_VERSION} (${GIT_CHANGESET_SHORT})")
+    set (OpenGR_PROJECT_NUMBER "V${OpenGR_VERSION} (${GIT_CHANGESET_SHORT})")
     set (OpenGR_DOC_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/doc)
     file (GLOB_RECURSE OpenGR_MD_FILES ${CMAKE_CURRENT_SOURCE_DIR}/doc/*.md)
 
@@ -192,9 +192,9 @@ set(ForceInstallCommutators "")
 if (MSVC)
         set(ForceInstallCommutators "/p:Configuration=${CMAKE_BUILD_TYPE}")
 endif(MSVC)
-add_custom_target(ForceSuper4PCSInstallation
+add_custom_target(ForceOpenGRInstallation
     COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target install -- ${ForceInstallCommutators}
-    COMMENT "Forcing Super4PCS installation")
+    COMMENT "Forcing OpenGR installation")
 
 
 set(config_install_dir "${CMAKE_INSTALL_PREFIX}/lib/cmake/")
@@ -214,7 +214,7 @@ include(CMakePackageConfigHelpers)
 # Note: PROJECT_VERSION is used as a VERSION
 write_basic_package_version_file(
     "${version_config}"
-                VERSION ${Super4PCS_VERSION}
+                VERSION ${OpenGR_VERSION}
                 COMPATIBILITY AnyNewerVersion
 )
 
@@ -228,9 +228,9 @@ configure_package_config_file(
     INSTALL_DESTINATION "${config_install_dir}"
 )
 
-install(EXPORT Super4PCS-IOLibTargets    DESTINATION ${config_install_dir})
-install(EXPORT Super4PCS-AlgoLibTargets  DESTINATION ${config_install_dir})
-install(EXPORT Super4PCS-AccelLibTargets DESTINATION ${config_install_dir})
+install(EXPORT OpenGR-IOLibTargets    DESTINATION ${config_install_dir})
+install(EXPORT OpenGR-AlgoLibTargets  DESTINATION ${config_install_dir})
+install(EXPORT OpenGR-AccelLibTargets DESTINATION ${config_install_dir})
 
 if(OpenGR_USE_CHEALPIX)
     install(EXPORT chealpixTargets DESTINATION ${config_install_dir})
